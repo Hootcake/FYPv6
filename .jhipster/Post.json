@@ -1,0 +1,34 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "userProfile",
+            "otherEntityName": "userProfile",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "content",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "created_on",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20171205171902",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "post",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

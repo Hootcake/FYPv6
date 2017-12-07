@@ -1,0 +1,64 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myReviewLabel">Create or edit a Review</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!review.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="review.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                [(ngModel)]="review.title"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_rating">Rating</label>
+            <input type="number" class="form-control" name="rating" id="field_rating"
+                [(ngModel)]="review.rating" max="5" />
+            <div [hidden]="!(editForm.controls.rating?.dirty && editForm.controls.rating?.invalid)">
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.rating?.errors?.max">
+                    This field cannot be more than 5.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.rating?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_message">Message</label>
+            <input type="text" class="form-control" name="message" id="field_message"
+                [(ngModel)]="review.message"  />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" for="field_reviewed_by">Reviewed By</label>
+            <select class="form-control" id="field_reviewed_by" name="reviewed_by" [(ngModel)]="review.reviewed_by" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="userOption.id === review.reviewed_by?.id ? review.reviewed_by : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_recipe">Recipe</label>
+            <select class="form-control" id="field_recipe" name="recipe" [(ngModel)]="review.recipe" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="recipeOption.id === review.recipe?.id ? review.recipe : recipeOption" *ngFor="let recipeOption of recipes; trackBy: trackRecipeById">{{recipeOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

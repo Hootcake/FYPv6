@@ -1,0 +1,43 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "reviewed_by",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "review"
+        },
+        {
+            "relationshipName": "recipe",
+            "otherEntityName": "recipe",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "rating",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "max"
+            ],
+            "fieldValidateRulesMax": "5"
+        },
+        {
+            "fieldName": "message",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20171205174432",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "review",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

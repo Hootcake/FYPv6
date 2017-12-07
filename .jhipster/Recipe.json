@@ -1,0 +1,57 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "created_by",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "recipe"
+        },
+        {
+            "relationshipName": "favorited_by",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "recipe"
+        },
+        {
+            "relationshipName": "ingredients",
+            "otherEntityName": "ingredient",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "name",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "recipes"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "time",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "prep",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "method",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "notes",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20171205174131",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "recipe",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

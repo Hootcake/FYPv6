@@ -1,0 +1,43 @@
+
+<div *ngIf="review">
+    <h2><span>Review</span> {{review.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Title</span></dt>
+        <dd>
+            <span>{{review.title}}</span>
+        </dd>
+        <dt><span>Rating</span></dt>
+        <dd>
+            <span>{{review.rating}}</span>
+        </dd>
+        <dt><span>Message</span></dt>
+        <dd>
+            <span>{{review.message}}</span>
+        </dd>
+        <dt><span>Reviewed By</span></dt>
+        <dd>
+            {{review.reviewed_by?.login}}
+        </dd>
+        <dt><span>Recipe</span></dt>
+        <dd>
+            <div *ngIf="review.recipe">
+                <a [routerLink]="['/recipe', review.recipe?.id]">{{review.recipe?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'review/'+ review.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

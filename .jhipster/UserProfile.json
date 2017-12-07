@@ -1,0 +1,25 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "userProfile"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20171205165108",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "user_profile",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

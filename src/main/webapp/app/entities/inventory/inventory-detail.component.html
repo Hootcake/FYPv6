@@ -1,0 +1,31 @@
+
+<div *ngIf="inventory">
+    <h2><span>Inventory</span> {{inventory.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>User</span></dt>
+        <dd>
+            {{inventory.user?.login}}
+        </dd>
+        <dt><span>Ingredients</span></dt>
+        <dd>
+            <span *ngFor="let ingredients of inventory.ingredients; let last = last">
+                <a [routerLink]="['/ingredient', ingredients?.id ]">{{ingredients.id}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'inventory/'+ inventory.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

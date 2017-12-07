@@ -1,0 +1,50 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "shoppingLists",
+            "otherEntityName": "shoppingList",
+            "relationshipType": "many-to-many",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "ingredients"
+        },
+        {
+            "relationshipName": "inventories",
+            "otherEntityName": "inventory",
+            "relationshipType": "many-to-many",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "ingredients"
+        },
+        {
+            "relationshipName": "recipes",
+            "otherEntityName": "recipe",
+            "relationshipType": "many-to-many",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "ingredients"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "unit_of_measure",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "quantity",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "weight",
+            "fieldType": "Double"
+        }
+    ],
+    "changelogDate": "20171205173615",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "ingredient",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}
